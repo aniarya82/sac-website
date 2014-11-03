@@ -1,21 +1,21 @@
 <div class="container-fluid active" id="content" data-holder="first">
- <h1> Heading </h1>
- <p> Because headings are not enough! </p>  
+ <h1> Yearbook 1 </h1>
+ <p class="txt"> Because headings are not enough! </p>	
 </div>
 
 <div class="container-fluid" style="font-family:source_sans_problack_italic" data-holder="second">
- <h1> Heading </h1>
- <p> Because headings are not enough! </p>  
+ <h1> Yearbook 2 </h1>
+ <p> Because headings are not enough! </p>	
 </div>
 
 <div class="container-fluid" style="font-family:source_sans_proitalic" data-holder="third">
- <h1> Heading </h1>
- <p> Because headings are not enough! </p>  
+ <h1> Yearbook 3 </h1>
+ <p> Because headings are not enough! </p>	
 </div>
 
 <div class="container-fluid" style="font-family:source_sans_probold" data-holder="forth">
- <h1> Heading </h1>
- <p> Because headings are not enough! </p>  
+ <h1> Yearbook 4 </h1>
+ <p> Because headings are not enough! </p>	
 </div>
 
 <script>
@@ -25,6 +25,8 @@ $(document).ready(function(){
   $(".header-list-1 div").on("click", function(){
     sweetAlert("You clicked a div!" + $(this).attr("data-holder"));
     //$(this).addClass("active");
+    var p = "<h3>Yearbook 1</h3>";
+    $(this).html() = p;
     $(".header-list-1").removeClass("col-md-4").addClass("col-md-2");
     $(".header-list-2").removeClass("col-md-4").addClass("col-md-8");
     $(".header-list-3").removeClass("col-md-4").addClass("col-md-2");

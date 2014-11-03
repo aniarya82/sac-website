@@ -2,13 +2,13 @@
 
 <head>
 
-	<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+  <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
 
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="fonts/font.css">
-	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="fonts/font.css">
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
   <link rel="stylesheet" type="text/css" href="sweetalert.css">
 
@@ -28,8 +28,10 @@
 
   #main{
     background-image: url('2.png');
-    background-repeat: none;
+    background-repeat: no-repeat;
     background-attachment: fixed;
+    /*background-position: center;*/
+    background-size: 100% 220px;
     width: 100%;
     height: 230px;
 
@@ -94,12 +96,14 @@
   }
 
   .header-list-1 div:hover{
-    padding-left: 20%;
+    /*padding-left: 20%;*/
     cursor: pointer;
-    -webkit-transition: all 0.8s ease-out;
+    color: rgb(193,76,61);
+    background-color: rgb(240,240,240);
+    /*-webkit-transition: all 0.8s ease-out;
     -moz-transition: all 0.8s ease-out;
     -o-transition: all 0.8s ease-out;
-    transition: all 0.8s ease-out; 
+    transition: all 0.8s ease-out;*/ 
   }
 
   .overflowscroll{
@@ -112,34 +116,34 @@
 
 <body>
 
-	<div id="main">
+  <div id="main">
 
-		<!-- Static navbar -->
-		<div class="navbar" role="navigation">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<span class="navbar-brand"> Students' Alumni Cell </span>
-				</div>
+    <!-- Static navbar -->
+    <div class="navbar" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <span class="navbar-brand"> Students' Alumni Cell </span>
+        </div>
 
-				<div class="navbar-collapse collapse">
-					<ul class="nav navbar-nav">
-						<li class="active"><a href="#">Overview</a></li>
-						<li><a href="#">Annual Alumni Meet</a></li>
-						<li><a class="load-col-1" href="#" data-holder="list-header-1">Mentorship</a></li>
-						<li><a href="#">Yearbook</a></li>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="overview active"><a href="#">Overview</a></li>
+            <li class="meet " data-holder="meet"><a href="#">Annual Alumni Meet</a></li>
+            <li class="mentorship " data-holder="mentorship"><a class="load-col-1" href="#" data-holder="list-header-1">Mentorship</a></li>
+            <li class="yearbook " data-holder="yearbook"><a href="#">Yearbook</a></li>
 
           </ul>
           <ul class="nav navbar-nav navbar-right">
-          	<li><a href="#"><i style="font-size: 20px; " class="fa fa-twitter"></i></a></li>
-          	<li><a href="#"><i style="font-size: 20px; " class="fa fa-facebook"></i></a></li>
-          	<li><a href="#"><i style="font-size: 20px; " class="fa fa-youtube"></i></a></li>
-          	<li><a href="#"><i style="font-size: 20px; " class="fa fa-linkedin"></i></a></li>
+            <li><a href="#"><i style="font-size: 20px; " class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i style="font-size: 20px; " class="fa fa-facebook"></i></a></li>
+            <li><a href="#"><i style="font-size: 20px; " class="fa fa-youtube"></i></a></li>
+            <li><a href="#"><i style="font-size: 20px; " class="fa fa-linkedin"></i></a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div><!--/.container-fluid -->
@@ -184,7 +188,34 @@
     $(".load-col-1").on("click", function(){
 
       $(".header-list-1").load($(this).attr("data-holder") + ".html");
+      $(".mentorship").addClass("active");
+      $(".overview").removeClass("active");
+      $(".meet").removeClass("active");
+      $(".yearbook").removeClass("active");
 
+    });
+
+    $(".overview").on("click", function() {
+      $(".overview").addClass("active");
+      $(".meet").removeClass("active");
+      $(".mentorship").removeClass("active");
+      $(".yearbook").removeClass("active");
+    });
+
+    $(".meet").on("click", function() {
+      $(".header-list-1").load($(this).attr("data-holder") + ".html");
+      $(".meet").addClass("active");
+      $(".overview").removeClass("active");
+      $(".mentorship").removeClass("active");
+      $(".yearbook").removeClass("active");
+    });
+
+    $(".yearbook").on("click", function() {
+      $(".header-list-1").load($(this).attr("data-holder") + ".html");
+      $(".yearbook").addClass("active");
+      $(".overview").removeClass("active");
+      $(".mentorship").removeClass("active");
+      $(".meet").removeClass("active");
     });
 
   //   $(".header-list-1 div").on("click", function(){
