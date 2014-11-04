@@ -133,10 +133,10 @@
 
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="overview active"><a href="#">Overview</a></li>
-            <li class="meet " data-holder="meet"><a href="#">Annual Alumni Meet</a></li>
-            <li class="mentorship " data-holder="mentorship"><a class="load-col-1" href="#" data-holder="list-header-1">Mentorship</a></li>
-            <li class="yearbook " data-holder="yearbook"><a href="#">Yearbook</a></li>
+            <li class="load_col_1 active"><a href="#">Overview</a></li>
+            <li class="load_col_1 " data-holder="meet"><a href="#">Annual Alumni Meet</a></li>
+            <li class="load_col_1 " data-holder="mentorship"><a class="load-col-1" href="#" data-holder="list-header-1">Mentorship</a></li>
+            <li class="load_col_1 " data-holder="yearbook"><a href="#">Yearbook</a></li>
 
           </ul>
           <ul class="nav navbar-nav navbar-right">
@@ -185,13 +185,13 @@
 
     $(".header-list-1").addClass("overflowscroll");
 
-    $(".load-col-1").on("click", function(){
+    $(".load_col_1").on("click", function(){
 
       $(".header-list-1").load($(this).attr("data-holder") + ".html");
-      $(".mentorship").addClass("active");
-      $(".overview").removeClass("active");
-      $(".meet").removeClass("active");
-      $(".yearbook").removeClass("active");
+      $(".load_col_1").each(function () {
+        $(this).removeClass("active");
+      });
+      $(this).addClass("active");
 
     });
 
